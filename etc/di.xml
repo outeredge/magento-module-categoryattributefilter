@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <type name="Magento\Catalog\Model\Category\DataProvider">
+        <plugin name="OuterEdge_CategoryDataProviderPlugin" type="OuterEdge\CategoryAttributeFilter\Plugin\CategoryDataProviderPlugin" />
+    </type>
+    <preference for="Magento\Catalog\Model\Layer\Category\FilterableAttributeList" type="OuterEdge\CategoryAttributeFilter\Model\Layer\Category\FilterableAttributeList" />
+</config>
