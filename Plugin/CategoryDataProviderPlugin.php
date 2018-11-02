@@ -30,7 +30,9 @@ class CategoryDataProviderPlugin {
         $data = reset($result);
         
         $collection = $model->getCollection();
-        $collection->addFieldToFilter('category_id', ['eq'=> $data['entity_id']]);
+        if(isset($data['entity_id'])) {
+            $collection->addFieldToFilter('category_id', ['eq' => $data['entity_id']]);
+        }
         
         $selectedIds = array();
         foreach ($collection as $row) {
