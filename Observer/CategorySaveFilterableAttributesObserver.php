@@ -44,13 +44,15 @@ class CategorySaveFilterableAttributesObserver implements ObserverInterface
 
             //Save new rows
             foreach ($data['filterable_attributes'] as $row) {
-                $saveRow = [
-                            'category_id' => $category->getId(), 
-                            'eav_attribute_id' => $row 
-                        ];
-        
-                $model->addData($saveRow);  
-               
+                if ($row !== '0') {
+                    $saveRow = [
+                        'category_id' => $category->getId(),
+                        'eav_attribute_id' => $row
+                    ];
+
+                    $model->addData($saveRow);
+                }
+                
                 try {
                     $model->save();
                     $model->unsetData();
